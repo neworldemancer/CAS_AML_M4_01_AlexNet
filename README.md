@@ -1,5 +1,12 @@
 # AlexNet / EfficientNet ImageNet demos
 
+> **Already-executed results notebooks are included — no setup or run
+> needed to study them.** `alexnet_demo.results.ipynb` and
+> `efficientnet_demo.results.ipynb` are full copies of the notebooks below
+> with every figure and printed output from the last complete run already
+> baked in. Just open one and read. See **Notebook layout** below for the
+> distinction from the (output-free) source notebooks.
+
 Two parallel Jupyter notebooks exercising pretrained ImageNet classifiers
 (`alexnet_demo.ipynb` with torchvision's AlexNet, `efficientnet_demo.ipynb`
 with EfficientNet-B0) on the same set of internet test images, with identical
@@ -19,10 +26,14 @@ structure throughout:
    on a single view — see `prompts.md` session 2 for why a single sample per
    step produces a near-random walk instead of a directed one.
 
-> **Just here to look, not to run anything?** Open
-> `alexnet_demo.results.ipynb` / `efficientnet_demo.results.ipynb` — no
-> setup needed, every figure and printed output from the last full run is
-> already baked in. See **Running** below.
+For sections 3 and 4, don't just glance at the final optimized image — to
+the eye it usually looks almost identical to the original. **The diff maps
+(raw and amplified) are the point**: look at them yourself, with your own
+eyes, and try to work out what actually changed — is it scattered
+pixel-level noise, or something more structured and localized? Does that
+character visibly differ between the plain optimization (section 3) and the
+EOT-regularized one (section 4)? That comparison is the actual exercise;
+the final probability numbers alone won't show it to you.
 
 ## Setup
 

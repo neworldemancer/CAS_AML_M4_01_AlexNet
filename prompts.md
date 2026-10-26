@@ -107,22 +107,22 @@ A separate Claude Code session (same model, `claude-sonnet-5`), started fresh
 against the state left by session 1 above.
 
 From Claude Code's own session summary (final, as of the end of this
-session — items 14–19 below):
+session — items 14–24 below):
 
 ```
-Total cost:            $10.71
-Total duration (API):  18m 58s
-Total duration (wall): 1d 9h 35m
-Total code changes:    667 lines added, 6 lines removed
+Total cost:            $15.03
+Total duration (API):  23m 4s
+Total duration (wall): 1d 11h 19m
+Total code changes:    759 lines added, 23 lines removed
 Usage by model:
     claude-haiku-4-5:  972 input, 13 output, 0 cache read, 0 cache write ($0.0010)
-     claude-sonnet-5:  2.2k input, 95.7k output, 20.4m cache read, 1.4m cache write ($10.71)
+     claude-sonnet-5:  3.0k input, 115.3k output, 35.1m cache read, 1.7m cache write ($15.03)
 ```
 
-So: **$10.71** total, almost entirely `claude-sonnet-5` (a trace of
+So: **$15.03** total, almost entirely `claude-sonnet-5` (a trace of
 `claude-haiku-4-5` for a sub-$0.01 incidental task). The wall-clock time
-above (1d 9h) reflects the session being left open/idle between turns, not
-continuous work — the API was only actively busy for under 19 minutes;
+above (1d 11h) reflects the session being left open/idle between turns, not
+continuous work — the API was only actively busy for under 24 minutes;
 separately, the two `jupyter nbconvert --execute` runs for the K=32 rerun
 (~1h for AlexNet, ~2.5h for EfficientNet-B0) ran as background shell
 processes outside the API-duration accounting above.
@@ -207,4 +207,55 @@ processes outside the API-duration accounting above.
     > repo under dsl-unibe-ch with name CAS_AML_M4_Examples - and put
     > current repo as it's subrepo
 
-    (this entry)
+    No `gh` CLI or credentials were available in the shell; installed
+    `gh` via `winget`, the user completed `gh auth login` interactively.
+    Created `neworldemancer/CAS_AML_M4_01_AlexNet` (public), pushed this
+    repo to it as `origin`. Created `dsl-unibe-ch/CAS_AML_M4_Examples`
+    (public; user is an active org member with repo-create rights) and
+    added the above repo to it as a git submodule at path `01_AlexNet`.
+
+20. **Fix references after a manual script rename**:
+    > i have chanegs script name, please update what depends on it and push
+
+    The user had renamed the `[project.scripts]` entry in `pyproject.toml`
+    from `01-alexnet` to `run_all` directly (it had already slipped into
+    the item-18/19 commit unnoticed). Updated the two `README.md`
+    references to the old name and pushed.
+
+21. **Emphasize the diff maps in the README**, across several short
+    follow-ups in one turn:
+    > also say that there are ready nbs
+    > if you want ti just watch
+    > emphasize in doc
+    > that it's important to look at the difference optimized vs oiginal
+    > with your own perception
+    > and find what chanegd
+
+    Added a callout near the top of `README.md` pointing at the
+    `.results.ipynb` files for anyone who just wants to look, plus a
+    paragraph telling the reader not to just glance at the final image but
+    to inspect the raw/amplified diff maps themselves and judge whether the
+    character of the change (not just its magnitude) differs between plain
+    and EOT-regularized optimization.
+
+22. **(ambiguous, clarified)**:
+    > running the nb is done
+    > and script is docen with clause help
+
+    No output files had actually changed on disk at that point; asked the
+    user to clarify what they meant before acting (avoided guessing at a
+    multi-hour `run_all` execution on an ambiguous prompt).
+
+23. **Clarification of 22**:
+    > i meant you need to rsay in readme that there are already executed
+    > result notebooks to study
+
+    So item 21 above was the actual intent all along. Moved the callout to
+    the very top of `README.md` (before the project description), sharpened
+    its wording to state plainly that `.results.ipynb` are already executed
+    and ready to study, and removed the now-redundant second callout further
+    down the file.
+
+24. **Final usage for this session**:
+    > final usage of this secons ssession: Total cost: $15.03 [...]
+    > (full block reproduced at the top of this section)
