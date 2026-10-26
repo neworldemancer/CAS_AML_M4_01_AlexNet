@@ -1,0 +1,45 @@
+[project]
+name = "01-alexnet"
+version = "0.1.0"
+description = "AlexNet / EfficientNet-B0 ImageNet demos: predictions, robustness sweeps, and EOT-regularized input optimization"
+authors = [
+    { name = "neworldemancer", email = "neworldemancer@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=7.4.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.2",
+    "nbclient>=0.11.0",
+    "nbformat>=5.11.1",
+    "numpy>=2.4.6",
+    "pillow>=13.0.0",
+    "requests>=2.34.2",
+    "torch>=2.14.1",
+    "torchvision>=0.29.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.4",
+]
+
+[project.scripts]
+run_all = "alexnet_demos:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "alexnet_demos"
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+extend-select = ["I"]  # isort
+# BLE001 (blind except): intentional in the image-download loop - one bad
+# Commons URL or corrupt file shouldn't abort the whole batch.
+ignore = ["BLE001"]
