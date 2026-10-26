@@ -19,6 +19,11 @@ structure throughout:
    on a single view — see `prompts.md` session 2 for why a single sample per
    step produces a near-random walk instead of a directed one.
 
+> **Just here to look, not to run anything?** Open
+> `alexnet_demo.results.ipynb` / `efficientnet_demo.results.ipynb` — no
+> setup needed, every figure and printed output from the last full run is
+> already baked in. See **Running** below.
+
 ## Setup
 
 ```
@@ -30,8 +35,14 @@ this platform), `jupyter`, `matplotlib`, etc. — see `pyproject.toml`.
 
 ## Running
 
-Open either notebook in Jupyter/VS Code and run all cells, or regenerate both
-end to end from the command line:
+**Just want to look at the results?** No setup needed — open
+`alexnet_demo.results.ipynb` / `efficientnet_demo.results.ipynb` directly;
+they already have every figure and printed output from the last full run
+baked in.
+
+To run it yourself: open either source notebook (`alexnet_demo.ipynb` /
+`efficientnet_demo.ipynb`) in Jupyter/VS Code and run all cells, or
+regenerate both end to end from the command line:
 
 ```
 uv run run_all
