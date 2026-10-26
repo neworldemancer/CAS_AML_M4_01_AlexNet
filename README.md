@@ -34,7 +34,7 @@ Open either notebook in Jupyter/VS Code and run all cells, or regenerate both
 end to end from the command line:
 
 ```
-uv run 01-alexnet
+uv run run_all
 ```
 
 This executes `alexnet_demo.ipynb` and `efficientnet_demo.ipynb` in clean
@@ -62,5 +62,5 @@ roughly 1–3 hours per notebook (1000 steps × 32 augmented samples/step ×
 - `prompts.md` — the full prompt history behind these notebooks (across two
   sessions), kept for reproducibility and as a record of *why* things are
   the way they are (e.g. the `N_AUG_SAMPLES = 32` choice).
-- `src/alexnet_demos/` — the `01-alexnet` console script (see Running,
+- `src/alexnet_demos/` — the `run_all` console script (see Running,
   above).
